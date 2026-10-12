@@ -3,338 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Angeline Glory Jessy George Thomas — Data & Applied ML</title>
+<title>Angeline Jessy — Data & Applied ML</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #12161c;
-    --bg-raised: #171c23;
-    --border: #2a303a;
-    --border-soft: #1f252d;
-    --text: #e8e6e1;
-    --text-dim: #9aa1ac;
-    --text-faint: #5f6771;
-    --amber: #d1a13c;
-    --amber-dim: #7a6535;
-    --teal: #5a9c92;
-    --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
+    --bg: #f7f4ec;
+    --card: #ffffff;
+    --green: #2f4a3d;
+    --ink: #22262b;
+    --dim: #5d6670;
+    --faint: #8b929a;
+    --line: #e4dfd2;
+    --chip: #ece7d9;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
   }
-
   * { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    font-size: 16px;
-  }
-
-  a { color: var(--amber); text-decoration: none; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.6; font-size: 16px; }
+  a { color: var(--green); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
-
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
 
   /* NAV */
-  nav {
-    border-bottom: 1px solid var(--border-soft);
-    position: sticky; top: 0; background: rgba(18,22,28,0.92);
-    backdrop-filter: blur(6px); z-index: 10;
-  }
-  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-  .nav-name { font-weight: 600; font-size: 15px; color: var(--text); }
-  .nav-links { display: flex; gap: 28px; font-size: 14px; }
-  .nav-links a { color: var(--text-dim); }
-  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(247,244,236,0.92); backdrop-filter: blur(6px); }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+  .nav-name { font-family: var(--serif); font-weight: 600; font-size: 18px; color: var(--green); }
+  .pills { display: flex; gap: 10px; align-items: center; }
+  .pill { padding: 8px 18px; border-radius: 999px; font-size: 14px; font-weight: 500; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
+  .pill:hover { text-decoration: none; border-color: var(--green); }
+  .pill.green { background: var(--green); color: #fff; border-color: var(--green); }
+  .pill.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
 
   /* HERO */
-  .hero { padding: 88px 0 72px; border-bottom: 1px solid var(--border-soft); }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; }
-  .eyebrow { font-family: var(--font-mono); font-size: 13px; color: var(--teal); margin: 0 0 18px; }
-  h1 { font-size: 40px; line-height: 1.2; margin: 0 0 20px; font-weight: 600; letter-spacing: -0.01em; }
-  .hero p.lede { color: var(--text-dim); font-size: 17px; max-width: 46ch; margin: 0 0 28px; }
-  .hero-links { display: flex; gap: 20px; font-size: 14px; }
-
-  /* Mini dashboard widget in hero */
-  .console {
-    background: var(--bg-raised);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  .console-head {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    display: flex; justify-content: space-between; align-items: center;
-    font-family: var(--font-mono); font-size: 12px; color: var(--text-faint);
-  }
-  .console-body { padding: 16px; }
-  .metric-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-soft); }
-  .metric-row:last-child { border-bottom: none; }
-  .metric-label { font-size: 13px; color: var(--text-dim); }
-  .metric-value { font-family: var(--font-mono); font-size: 15px; font-weight: 500; }
-  .metric-value.flag { color: var(--amber); }
-  .case-list { margin-top: 4px; }
-  .case-item {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 9px 0; border-bottom: 1px solid var(--border-soft);
-    font-family: var(--font-mono); font-size: 12.5px;
-  }
-  .case-item:last-child { border-bottom: none; }
-  .case-name { color: var(--text); }
-  .tag { padding: 2px 8px; border-radius: 3px; font-size: 11px; }
-  .tag.high { background: rgba(209,161,60,0.15); color: var(--amber); border: 1px solid var(--amber-dim); }
-  .tag.review { background: rgba(90,156,146,0.12); color: var(--teal); border: 1px solid rgba(90,156,146,0.4); }
+  .hero { padding: 72px 0 56px; text-align: center; }
+  .eyebrow { font-family: var(--mono); font-size: 13px; color: var(--faint); letter-spacing: 0.04em; margin: 0 0 18px; }
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 52px; line-height: 1.12; color: var(--green); margin: 0 auto 22px; max-width: 18ch; letter-spacing: -0.015em; }
+  .lede { color: var(--dim); font-size: 18px; max-width: 54ch; margin: 0 auto 30px; }
+  .strip { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 28px; min-width: 170px; }
+  .stat b { display: block; font-family: var(--serif); font-size: 32px; color: var(--green); font-weight: 600; }
+  .stat span { font-size: 13px; color: var(--dim); }
 
   /* SECTIONS */
-  section { padding: 72px 0; border-bottom: 1px solid var(--border-soft); }
-  section:last-of-type { border-bottom: none; }
-  .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 36px; }
-  h2 { font-size: 22px; font-weight: 600; margin: 0; }
-  .section-note { color: var(--text-faint); font-size: 13px; font-family: var(--font-mono); }
+  section { padding: 56px 0; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: 34px; color: var(--green); margin: 0 0 8px; }
+  .sub { color: var(--dim); margin: 0 0 32px; }
+
+  /* TIMELINE */
+  .tl { position: relative; padding-left: 64px; }
+  .tl::before { content: ""; position: absolute; left: 21px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+  .tl-item { position: relative; margin-bottom: 22px; }
+  .tl-num { position: absolute; left: -64px; top: 10px; width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 600; font-size: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px 26px; }
+  .card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .co { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+  .date { background: var(--chip); color: var(--green); font-size: 12.5px; padding: 4px 12px; border-radius: 999px; font-weight: 500; }
+  .role { font-family: var(--serif); font-size: 21px; font-weight: 600; margin: 4px 0 12px; }
+  .card ul { list-style: none; margin: 0; padding: 0; }
+  .card li { position: relative; padding-left: 24px; margin-bottom: 8px; color: var(--dim); font-size: 15px; }
+  .card li::before { content: "→"; position: absolute; left: 0; color: var(--green); }
 
   /* PROJECT */
-  .project { display: grid; grid-template-columns: 1fr; gap: 28px; }
-  .project-title { font-size: 20px; font-weight: 600; margin: 0 0 8px; }
-  .project-desc { color: var(--text-dim); max-width: 68ch; margin: 0 0 20px; }
-  .project-result {
-    border-left: 2px solid var(--amber);
-    padding: 4px 0 4px 18px;
-    margin: 0 0 24px;
-    color: var(--text);
-    font-size: 15px;
-  }
-  .project-result strong { color: var(--amber); }
-  .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
-  .stack span {
-    font-family: var(--font-mono); font-size: 12px; color: var(--text-dim);
-    border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px;
-  }
-  .project-links { font-size: 14px; }
+  .feat { border-color: var(--green); border-width: 1.5px; }
+  .feat .role { font-size: 24px; }
+  .result { background: var(--chip); border-radius: 12px; padding: 14px 18px; margin: 14px 0; font-size: 15px; color: var(--ink); }
+  .result strong { color: var(--green); }
+  .arch { font-family: var(--mono); font-size: 12.5px; color: var(--dim); background: #fbf9f3; border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; white-space: pre; overflow-x: auto; margin: 14px 0; }
+  .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+  .stack span { font-family: var(--mono); font-size: 12px; background: var(--chip); color: var(--green); padding: 4px 11px; border-radius: 999px; }
 
-  .other-projects-head { margin: 48px 0 20px; font-size: 13px; color: var(--text-faint); font-family: var(--font-mono); }
-  .other-projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .mini-project {
-    background: var(--bg-raised); border: 1px solid var(--border); border-radius: 6px;
-    padding: 20px 22px;
-  }
-  .mini-project-title { font-size: 14.5px; font-weight: 500; margin: 0 0 4px; color: var(--text); }
-  .mini-project-stack { font-family: var(--font-mono); font-size: 11.5px; color: var(--teal); margin: 0 0 10px; }
-  .mini-project-desc { font-size: 13.5px; color: var(--text-dim); margin: 0; }
+  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .mini h3 { font-family: var(--serif); font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+  .mini .ms { font-family: var(--mono); font-size: 12px; color: var(--green); margin: 0 0 10px; }
+  .mini p { margin: 0; font-size: 14px; color: var(--dim); }
 
-  @media (max-width: 760px) {
-    .other-projects-grid { grid-template-columns: 1fr; }
-  }
-
-  .arch {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-dim);
-    background: var(--bg-raised);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 20px 24px;
-    white-space: pre;
-    overflow-x: auto;
-    margin: 0 0 24px;
-  }
-
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-  .skill-group h3 {
-    font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--text-faint); font-weight: 500; margin: 0 0 14px;
-  }
-  .skill-group ul { list-style: none; margin: 0; padding: 0; }
-  .skill-group li {
-    font-size: 14px; color: var(--text-dim); padding: 5px 0;
-    border-bottom: 1px solid var(--border-soft);
-  }
-  .skill-group li:last-child { border-bottom: none; }
-
-  /* EXPERIENCE */
-  .exp-item { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--border-soft); }
-  .exp-item:last-child { border-bottom: none; }
-  .exp-date { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-faint); padding-top: 2px; }
-  .exp-role { font-size: 15px; font-weight: 500; margin: 0 0 3px; }
-  .exp-company { font-size: 13px; color: var(--text-faint); margin: 0 0 8px; }
-  .exp-desc { font-size: 14px; color: var(--text-dim); margin: 0; max-width: 60ch; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .grid3 h3 { font-family: var(--serif); font-size: 18px; color: var(--green); margin: 0 0 12px; }
+  .grid3 li { padding-left: 0; font-size: 14.5px; margin-bottom: 6px; }
+  .grid3 li::before { content: none; }
 
   /* FOOTER */
-  footer { padding: 48px 0; }
-  .footer-grid { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-  .footer-links { display: flex; gap: 24px; font-size: 14px; }
-  .footer-note { font-size: 13px; color: var(--text-faint); }
+  footer { padding: 56px 0 64px; text-align: center; }
+  footer h2 { margin-bottom: 18px; }
+  .links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .note { color: var(--faint); font-size: 13px; }
 
   @media (max-width: 760px) {
-    .hero-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .exp-item { grid-template-columns: 1fr; gap: 6px; }
-    h1 { font-size: 32px; }
-    .wrap { padding: 0 20px; }
-    .nav-links { gap: 16px; font-size: 13px; }
+    h1 { font-size: 36px; }
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .wrap { padding: 0 18px; }
+    .tl { padding-left: 52px; }
+    .tl::before { left: 15px; }
+    .tl-num { left: -52px; width: 32px; height: 32px; font-size: 15px; }
+    .pill { padding: 7px 12px; font-size: 13px; }
+    .nav-name { font-size: 15px; }
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <span class="nav-name">Angeline Glory Jessy George Thomas</span>
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+    <span class="nav-name">Angeline Jessy</span>
+    <div class="pills">
+      <a class="pill" href="#experience">Experience</a>
+      <a class="pill green" href="#projects">Projects ✦</a>
+      <a class="pill" href="#skills">Skills</a>
+      <a class="pill dark" href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Data & applied ML</p>
-      <h1>I build systems that catch what shouldn't slip through.</h1>
-      <p class="lede">Business analytics background with hands-on experience in Python, SQL, vector search, and MLOps — currently focused on financial-crime detection and identity resolution.</p>
-      <div class="hero-links">
-        <a href="#work">See the work</a>
-        <a href="mailto:angeejez@gmail.com">Get in touch</a>
-      </div>
-    </div>
-
-    <div class="console">
-      <div class="console-head">
-        <span>case_queue.csv</span>
-        <span>live from portfolio project</span>
-      </div>
-      <div class="console-body">
-        <div class="metric-row">
-          <span class="metric-label">Customers screened</span>
-          <span class="metric-value">600</span>
-        </div>
-        <div class="metric-row">
-          <span class="metric-label">Watchlist recall</span>
-          <span class="metric-value flag">87%</span>
-        </div>
-        <div class="metric-row">
-          <span class="metric-label">False escalations, common names</span>
-          <span class="metric-value">0</span>
-        </div>
-        <div class="case-list">
-          <div class="case-item">
-            <span class="case-name">Javier Johnson Jr</span>
-            <span class="tag high">high</span>
-          </div>
-          <div class="case-item">
-            <span class="case-name">Brian Yang</span>
-            <span class="tag high">high</span>
-          </div>
-          <div class="case-item">
-            <span class="case-name">Danyel Wagner</span>
-            <span class="tag review">review</span>
-          </div>
-        </div>
-      </div>
+  <div class="wrap">
+    <p class="eyebrow">DATA & APPLIED ML · ATLANTA, GA</p>
+    <h1>I build systems that catch what shouldn't slip through.</h1>
+    <p class="lede">Business analytics background with hands-on experience in Python, SQL, vector search, and MLOps. I turn messy business data into working tools that analysts and consultants can actually use.</p>
+    <a class="pill green" href="#projects">See the work</a>
+    <a class="pill" href="mailto:angeejez@gmail.com">Get in touch</a>
+    <div class="strip">
+      <div class="stat"><b>87%</b><span>Watchlist recall</span></div>
+      <div class="stat"><b>0</b><span>False escalations, common names</span></div>
+      <div class="stat"><b>600</b><span>Customers screened</span></div>
     </div>
   </div>
 </header>
 
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="sub">Where I've applied data, analytics, and ML.</p>
+    <div class="tl">
+
+      <div class="tl-item">
+        <div class="tl-num">1</div>
+        <div class="card">
+          <div class="card-top"><span class="co">Mercedes-Benz · Contract via Pinnacle Group</span><span class="date">Mar 2026 — Present</span></div>
+          <p class="role">Wholesale Parts Analyst</p>
+          <ul>
+            <li>Applied SQL and Python within Azure Databricks for data exploration and analytics.</li>
+            <li>Built automated Power BI reporting for dealer performance.</li>
+            <li>Designed a RAG-based pricing agent architecture that retrieves historical price/quantity data from Excel reports and uses an LLM to generate flagged insights on at-risk vs. healthy dealer accounts, surfacing margin expansion/erosion and growth opportunities.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">2</div>
+        <div class="card">
+          <div class="card-top"><span class="co">Allsec Technologies</span><span class="date">Aug 2023 — Jul 2024</span></div>
+          <p class="role">Background Verification Researcher</p>
+          <ul>
+            <li>Collaborated with a team to build an embedding-based vector-search matching system in Python, contributing threshold tuning and domain requirements to disambiguate individuals with similar or identical names in sensitive checks (e.g., sex-offender registry results).</li>
+            <li>Tested and evaluated match accuracy, and used MLflow to track model versions and evaluation metrics across iterations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-num">3</div>
+        <div class="card">
+          <div class="card-top"><span class="co">State Street Corporation</span><span class="date">Sep 2022 — Aug 2023</span></div>
+          <p class="role">Investment Banking Operations Intern</p>
+          <ul>
+            <li>Built CI/CD pipelines and data pipelines for KYC identity verification, catching and preventing onboarding ID mismatches.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Featured Project</h2>
+    <p class="sub">Built from scratch to work through a problem I'd run into before.</p>
+    <div class="card feat">
+      <div class="card-top"><span class="co">Personal project</span><span class="date">2026</span></div>
+      <p class="role">AML Entity Resolution & Transaction Monitoring Pipeline</p>
+      <p style="color:var(--dim);margin:0 0 6px;">An end-to-end pipeline combining vector-search entity resolution against a watchlist with ML-based transaction anomaly scoring. It tackles common names causing false-positive matches in sensitive identity checks.</p>
+      <div class="result">Adding date of birth as a secondary identity signal eliminated <strong>every false escalation</strong> on common-name collisions, while still catching <strong>14 of 15</strong> disguised watchlist aliases.</div>
+      <div class="arch">Synthetic data generation
+│
+├──► Entity resolution (TF-IDF vectors + cosine similarity + DOB check)
+│
+└──► Risk scoring (feature engineering + Isolation Forest, MLflow-tracked)
+                │
+                ▼
+        Combined, prioritized case list ──► Streamlit dashboard</div>
+      <div class="stack"><span>Python</span><span>pandas</span><span>scikit-learn</span><span>MLflow</span><span>Streamlit</span><span>rapidfuzz</span><span>Faker</span></div>
+      <a href="https://github.com/Angie-Jez/aml-entity-resolution" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<section id="college">
+  <div class="wrap">
+    <h2>College Projects</h2>
+    <p class="sub">Mercer University coursework.</p>
+    <div class="grid2">
+      <div class="card mini">
+        <h3>Predictive Analytics for Heart Failure Risk Assessment</h3>
+        <p class="ms">Python · R · SQL</p>
+        <p>Applied statistical modeling and survival analysis to structured patient data to identify clinical factors influencing heart-failure mortality and support early detection.</p>
+      </div>
+      <div class="card mini">
+        <h3>CardioMetrics: Data-Driven Analysis of Cardiovascular Risk</h3>
+        <p class="ms">Power BI · Python</p>
+        <p>Built geographic heatmaps and statistical visualizations to surface age-based, gender, and lifestyle risk patterns supporting preventive healthcare strategies.</p>
+      </div>
+      <div class="card mini">
+        <h3>Revenue Optimization & Pricing Strategy Analysis</h3>
+        <p class="ms">Python · Excel</p>
+        <p>Applied regression modeling to measure price elasticity and recommended bundling, volume discounts, and dynamic pricing to maximize revenue.</p>
+      </div>
+      <div class="card mini">
+        <h3>Streamlining Patient Care Through Readmission Analysis</h3>
+        <p class="ms">R</p>
+        <p>Analyzed 25,000 patient records using EDA and predictive modeling (AUC-ROC, precision, recall) to identify key drivers of hospital readmissions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="education">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Education</h2>
-    </div>
-    <div class="exp-item">
-      <span class="exp-date">Aug 2024 — Dec 2025</span>
-      <div>
-        <p class="exp-role">Master of Science, Business Analytics</p>
-        <p class="exp-company">Mercer University, Atlanta, GA</p>
+    <h2>Education</h2>
+    <p class="sub">&nbsp;</p>
+    <div class="grid2">
+      <div class="card mini">
+        <span class="date">Aug 2024 — Dec 2025</span>
+        <h3 style="margin-top:12px;">Master of Science, Business Analytics</h3>
+        <p>Mercer University, Atlanta, GA</p>
       </div>
-    </div>
-    <div class="exp-item">
-      <span class="exp-date">Aug 2016 — May 2019</span>
-      <div>
-        <p class="exp-role">Bachelor of Science, Computer Science</p>
-        <p class="exp-company">Patrician College of Arts and Science, Chennai, India</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="work">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Featured project</h2>
-      <span class="section-note">2026</span>
-    </div>
-
-    <div class="project">
-      <div>
-        <p class="project-title">AML Entity Resolution & Transaction Monitoring Pipeline</p>
-        <p class="project-desc">An end-to-end financial-crime detection pipeline combining vector-search entity resolution against a watchlist with ML-based transaction anomaly scoring. Built from scratch to work through a real problem I'd encountered before: common names causing false-positive matches in sensitive identity checks.</p>
-
-        <p class="project-result">Adding date of birth as a secondary identity signal eliminated <strong>every false escalation</strong> on common-name collisions, while still correctly catching <strong>14 of 15</strong> disguised watchlist aliases.</p>
-
-        <div class="arch">Synthetic data generation
-        │
-        ├──► Entity resolution (TF-IDF vectors + cosine similarity + DOB check)
-        │
-        └──► Risk scoring (feature engineering + Isolation Forest, MLflow-tracked)
-                        │
-                        ▼
-                Combined, prioritized case list ──► Streamlit dashboard</div>
-
-        <div class="stack">
-          <span>Python</span><span>pandas</span><span>scikit-learn</span>
-          <span>MLflow</span><span>Streamlit</span><span>rapidfuzz</span><span>Faker</span>
-        </div>
-
-        <div class="project-links">
-          <a href="https://github.com/Angie-Jez/aml-entity-resolution" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="academic-projects">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>College Projects</h2>
-      <span class="section-note">Mercer University coursework</span>
-    </div>
-    <div class="other-projects-grid">
-      <div class="mini-project">
-        <p class="mini-project-title">Predictive Analytics for Heart Failure Risk Assessment</p>
-        <p class="mini-project-stack">Python · R · SQL</p>
-        <p class="mini-project-desc">Applied statistical modeling and survival analysis to structured patient data to identify clinical factors influencing heart-failure mortality and support early detection.</p>
-      </div>
-      <div class="mini-project">
-        <p class="mini-project-title">CardioMetrics: Data-Driven Analysis of Cardiovascular Risk</p>
-        <p class="mini-project-stack">Power BI · Python</p>
-        <p class="mini-project-desc">Built geographic heatmaps and statistical visualizations to surface age-based, gender, and lifestyle risk patterns supporting preventive healthcare strategies.</p>
-      </div>
-      <div class="mini-project">
-        <p class="mini-project-title">Revenue Optimization & Pricing Strategy Analysis</p>
-        <p class="mini-project-stack">Python · Excel</p>
-        <p class="mini-project-desc">Applied regression modeling to measure price elasticity and recommended bundling, volume discounts, and dynamic pricing to maximize revenue.</p>
-      </div>
-      <div class="mini-project">
-        <p class="mini-project-title">Streamlining Patient Care Through Readmission Analysis</p>
-        <p class="mini-project-stack">R</p>
-        <p class="mini-project-desc">Analyzed 25,000 patient records using EDA and predictive modeling (AUC-ROC, precision, recall) to identify key drivers of hospital readmissions.</p>
+      <div class="card mini">
+        <span class="date">Aug 2016 — May 2019</span>
+        <h3 style="margin-top:12px;">Bachelor of Science, Computer Science</h3>
+        <p>Patrician College of Arts and Science, Chennai, India</p>
       </div>
     </div>
   </div>
@@ -342,83 +253,41 @@
 
 <section id="skills">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Skills</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-group">
+    <h2>Skills</h2>
+    <p class="sub">&nbsp;</p>
+    <div class="grid3">
+      <div class="card">
         <h3>Programming</h3>
-        <ul>
-          <li>Python, R, SQL</li>
-          <li>Java, C, C++</li>
-        </ul>
+        <ul><li>Python, R, SQL</li><li>Java, C, C++</li></ul>
       </div>
-      <div class="skill-group">
+      <div class="card">
         <h3>Data & ML</h3>
         <ul>
-          <li>Vector search, embeddings</li>
+          <li>Vector search, embeddings, RAG</li>
           <li>MLflow, model evaluation</li>
           <li>Feature engineering</li>
           <li>Power BI, Azure Databricks</li>
           <li>Microsoft Office (Excel, PowerPoint, Word)</li>
         </ul>
       </div>
-      <div class="skill-group">
+      <div class="card">
         <h3>Domain</h3>
-        <ul>
-          <li>Business consulting</li>
-          <li>Financial analytics</li>
-          <li>Risk & compliance</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Experience</h2>
-    </div>
-
-    <div class="exp-item">
-      <span class="exp-date">Mar 2026 — Present</span>
-      <div>
-        <p class="exp-role">Wholesale Parts Analyst</p>
-        <p class="exp-company">Mercedes-Benz (Contract via Pinnacle Group)</p>
-        <p class="exp-desc">Applied SQL and Python within Azure Databricks for data exploration and analytics; built automated Power BI reporting and a rule-based pricing agent for dealer performance.</p>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <span class="exp-date">Aug 2023 — Jul 2024</span>
-      <div>
-        <p class="exp-role">Background Verification Researcher</p>
-        <p class="exp-company">Allsec Technologies</p>
-        <p class="exp-desc">Contributed to a team-built vector-search matching system for identity disambiguation — the direct inspiration for the AML project above.</p>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <span class="exp-date">Sep 2022 — Aug 2023</span>
-      <div>
-        <p class="exp-role">Investment Banking Operations Intern</p>
-        <p class="exp-company">State Street Corporation</p>
-        <p class="exp-desc">Built CI/CD pipelines and data pipelines for KYC identity verification, catching and preventing onboarding ID mismatches.</p>
+        <ul><li>Business consulting</li><li>Financial analytics</li><li>Risk & compliance</li></ul>
       </div>
     </div>
   </div>
 </section>
 
 <footer id="contact">
-  <div class="wrap footer-grid">
-    <div class="footer-links">
-      <a href="tel:+14705348500">+1 470 534 8500</a>
-      <a href="mailto:angeejez@gmail.com">angeejez@gmail.com</a>
-      <a href="https://www.linkedin.com/in/angeline-jessy-1b5310197/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/Angie-Jez" target="_blank" rel="noopener">GitHub</a>
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <div class="links">
+      <a class="pill dark" href="mailto:angeejez@gmail.com">angeejez@gmail.com</a>
+      <a class="pill" href="tel:+14705348500">+1 470 534 8500</a>
+      <a class="pill" href="https://www.linkedin.com/in/angeline-jessy-1b5310197/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill" href="https://github.com/Angie-Jez" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <span class="footer-note">Atlanta, GA</span>
+    <p class="note">Atlanta, GA</p>
   </div>
 </footer>
 
